@@ -24,8 +24,13 @@
   color: white;
 }
 
-.App-link {
+.App-btn {
   color: #61dafb;
+  text-transform: uppercase;
+  font-size: 18px;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {
