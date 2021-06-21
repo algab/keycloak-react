@@ -1,13 +1,13 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Loading from './components/Loading';
+import Spinner from './components/Spinner';
 
 const Home = lazy(() => import('./pages/Home'));
 
 const Routes: React.FC = () => {
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Spinner />}>
       <BrowserRouter>
         <Switch>
           <Route path="/" component={Home} exact />

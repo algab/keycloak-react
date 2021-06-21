@@ -33,6 +33,10 @@
   cursor: pointer;
 }
 
+.App-btn:hover {
+  color: #e5e5e5;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

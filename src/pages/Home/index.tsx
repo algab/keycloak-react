@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useKeycloak } from '@react-keycloak/web';
 import { KeycloakProfile } from 'keycloak-js';
 
-import './styles.css';
+import logo from '../../assets/logo.svg';
 
-import logo from '../../logo.svg';
+import './styles.css';
 
 const Home: React.FC = () => {
   const [user, setUser] = useState<KeycloakProfile>();

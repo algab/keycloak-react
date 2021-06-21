@@ -4,7 +4,7 @@ import { ReactKeycloakProvider } from '@react-keycloak/web';
 
 import Routes from './routes';
 import reportWebVitals from './reportWebVitals';
-import Loading from './components/Loading';
+import Spinner from './components/Spinner';
 import { keycloak, keycloakProvider } from './utils/keycloak';
 
 import './index.css';
@@ -19,7 +19,7 @@ const isLoading = () => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <ReactKeycloakProvider authClient={keycloak} initOptions={keycloakProvider} LoadingComponent={<Loading />} isLoadingCheck={isLoading}>
+    <ReactKeycloakProvider authClient={keycloak} initOptions={keycloakProvider} LoadingComponent={<Spinner />} isLoadingCheck={isLoading}>
       <Routes />
     </ReactKeycloakProvider>
   </React.StrictMode>,
