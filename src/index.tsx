@@ -1,27 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ReactKeycloakProvider } from '@react-keycloak/web';
 
 import Routes from './routes';
 import reportWebVitals from './reportWebVitals';
-import Spinner from './components/Spinner';
-import { keycloak, keycloakProvider } from './utils/keycloak';
+import Context from './contexts';
 
 import './index.css';
 
-const isLoading = () => {
-  if (keycloak.authenticated) {
-    return false;
-  } else {
-    return true;
-  }
-}
-
 ReactDOM.render(
   <React.StrictMode>
-    <ReactKeycloakProvider authClient={keycloak} initOptions={keycloakProvider} LoadingComponent={<Spinner />} isLoadingCheck={isLoading}>
+    <Context>
       <Routes />
-    </ReactKeycloakProvider>
+    </Context>
   </React.StrictMode>,
   document.getElementById('root')
 );
