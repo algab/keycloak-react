@@ -7,12 +7,11 @@ import { keycloak, keycloakProvider } from "../../utils/keycloak";
 interface KeycloakCTX {
   profile: KeycloakProfile | undefined;
   token: string;
-  logout(): void;
 }
 
 const KeycloakContext = createContext<KeycloakCTX>({} as KeycloakCTX);
 
-export const KeycloakProvider: React.FC = (props) => {
+export const KeycloakProvider: React.FC = ({ children }) => {
   const [profile, setProfile] = useState<KeycloakProfile>();
   const [token, setToken] = useState<string>("");
   const [loading, setLoading] = useState(true);
@@ -32,10 +31,6 @@ export const KeycloakProvider: React.FC = (props) => {
     init();
   }, []);
 
-  const logout = async () => {
-    await keycloak.logout();
-  };
-
   keycloak.onAuthSuccess = async () => {
     const profile = await keycloak.loadUserProfile();
     setProfile(profile as KeycloakProfile);
@@ -54,8 +49,8 @@ export const KeycloakProvider: React.FC = (props) => {
     return <Spinner />;
   }
   return (
-    <KeycloakContext.Provider value={{ profile, token, logout }}>
-      {props.children}
+    <KeycloakContext.Provider value={{ profile, token }}>
+      {children}
     </KeycloakContext.Provider>
   );
 };

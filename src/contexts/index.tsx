@@ -2,9 +2,9 @@ import React from "react";
 
 import { KeycloakProvider } from './Keycloak';
 
-const Context: React.FC = (props) => (
+const Context: React.FC = ({ children }) => (
   <KeycloakProvider>
-    {props.children}
+    {children}
   </KeycloakProvider>
 );
 

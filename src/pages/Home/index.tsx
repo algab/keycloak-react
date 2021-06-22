@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import KeycloakContext from '../../contexts/Keycloak';
+import { useKeycloak } from '../../hooks/useKeycloak';
 
 import logo from '../../assets/logo.svg';
 
 import './styles.css';
 
 const Home: React.FC = () => {
-  const { profile, logout } = useContext(KeycloakContext);
+  const { profile, logout } = useKeycloak();
 
   const logoutKeycloak = async () => {
     await logout();
